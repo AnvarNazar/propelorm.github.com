@@ -66,12 +66,12 @@ In Propel, you use the generated Query objects to retrieve existing rows from th
 
 ### Retrieving by Primary Key ###
 
-The simplest way to retrieve a row from the database, is to use the generated `findPK()` method. It simply expects the value of the primary key of the row to be retrieved.
+The simplest way to retrieve a row from the database, is to use the generated `findPk()` method. It simply expects the value of the primary key of the row to be retrieved.
 
 ```php
 <?php
 $q = new AuthorQuery();
-$firstAuthor = $q->findPK(1);
+$firstAuthor = $q->findPk(1);
 // now $firstAuthor is an Author object, or NULL if no match was found.
 ```
 
@@ -84,20 +84,20 @@ WHERE author.id = 1
 LIMIT 1;
 ```
 
-When the primary key consists of more than one column, `findPK()` accepts multiple parameters, one for each primary key column.
+When the primary key consists of more than one column, `findPk()` accepts multiple parameters, one for each primary key column.
 
 >**Tip**Every generated Query objects offers a factory method called `create()`. This methods creates a new instance of the query, and allows you to write queries in a single line:
 
 >```php
 ><?php
->$firstAuthor = AuthorQuery::create()->findPK(1);
+>$firstAuthor = AuthorQuery::create()->findPk(1);
 >```
 
-You can also select multiple objects based on their primary keys, by calling the generated `findPKs()` method. It takes an array of primary keys as a parameter:
+You can also select multiple objects based on their primary keys, by calling the generated `findPks()` method. It takes an array of primary keys as a parameter:
 
 ```php
 <?php
-$selectedAuthors = AuthorQuery::create()->findPKs(array(1,2,3,4,5,6,7));
+$selectedAuthors = AuthorQuery::create()->findPks(array(1,2,3,4,5,6,7));
 // $selectedAuthors is a collection of Author objects
 ```
 
